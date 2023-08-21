@@ -1,10 +1,11 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-
+const appServerConfig = require("../../config")
 
 const bodyParser = require('body-parser');//用于req.body获取值的
-const port = 3000
+const port = appServerConfig.expressListenPort
+
 import { DataSource } from "typeorm";
 import { originUrlConvertShortUrl } from "./utils"
 import { createResponse } from "./model";
@@ -25,7 +26,7 @@ export default function setup(AppDataSource: DataSource, Shorturl) {
      * 4. 返回拼接url
      */
 
-    const shortBaseUrl = "http://urlink.live/t" // 前端访问的url前缀
+    const shortBaseUrl = appServerConfig.frontendAccessBaseUrl // 前端访问的url前缀
 
     app.post("/gen", async (req, res) => {
 
