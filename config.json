@@ -1,4 +1,8 @@
 {
     "frontendAccessBaseUrl": "http://urlink.live/t",
-    "expressListenPort": 3000
+    "expressListenPort": 3000,
+    "envKeyName_MYSQL_HOST": "MYSQL_HOST",
+    "envKeyName_MYSQL_PORT": "MYSQL_PORT",
+    "envKeyName_MYSQL_USER": "MYSQL_USER",
+    "envKeyName_MYSQL_PWD": "MYSQL_PWD"
 }
