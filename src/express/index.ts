@@ -25,7 +25,7 @@ export default function setup(AppDataSource: DataSource, Shorturl) {
      * 4. 返回拼接url
      */
 
-    const shortBaseUrl = "http://urlink.live/t"
+    const shortBaseUrl = "http://urlink.live/t" // 前端访问的url前缀
 
     app.post("/gen", async (req, res) => {
 
@@ -52,6 +52,8 @@ export default function setup(AppDataSource: DataSource, Shorturl) {
 
 
             while (randomCodeResult) {
+                console.log("生成的随机码重复了，需要重新生成")
+
                 // 生成的随机码重复了，需要重新生成
                 str = originUrlConvertShortUrl()
                 randomCodeResult = await AppDataSource.manager.findOne(Shorturl, { where: { random_code: str } })
